@@ -1,8 +1,9 @@
+import { Outlet } from "react-router-dom";
+import { useState } from "react";
+
 import Banner from "@/components/banner";
 import Footer from "@/components/footer";
 import NavBar from "@/components/navBar";
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
 import MyContext, { CartItemType } from "@/context/context";
 
 const navigation = [

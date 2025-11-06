@@ -16,7 +16,7 @@ const Banner = () => {
         </p>
       </div>
       <div className="h-[400px]">
-        <img src="./assets/img-8.png" className="object-contain h-[100%]" />
+        <img src="../assets/img-8.png" className="object-contain h-[100%]" />
       </div>
     </div>
   );

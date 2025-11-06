@@ -3,39 +3,31 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <div className="hero-container h-[500px] mt-[75px] p-[20px] bg-cover bg-center bg-no-repeat">
-      <div className="">
-        <div className="mx-auto max-w-2xl">
-          <div className="text-center md:text-left">
-            <h1 className="text-[29px] font-semibold tracking-tight text-balance text-white sm:text-[40px] uppercase">
-              XX99 Mark II Headphones
-            </h1>
-            <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
-                to="#"
-                className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-              >
-                Get started
-              </Link>
-            </div>
+    <div className="bg-[color:var(--black)] flex justify-between flex-col-reverse md:flex-row gap-2.5 items-center mt-[75px] p-[20px]">
+      <div className="mx-auto text-center md:text-left p-[30px]">
+        <div className="md:max-w-[75%]">
+          <h4 className="mb-3 uppercase tracking-[7px] font-[400] text-[color:var(--color1)]">
+            new product
+          </h4>
+          <h1 className="text-[29px] font-semibold tracking-tight text-balance text-white sm:text-[40px] uppercase">
+            XX99 Mark II Headphones
+          </h1>
+          <p className="mt-8 text-[16px] font-medium text-pretty text-gray-400 sm:text-xl/8">
+            Experience natural, lifelike audio and exceptional build quality
+            made for the passionate music enthusiast.
+          </p>
+          <div className="mt-10">
+            <Link
+              to="headphones/xx99-mark-ii-headphones"
+              className="md:max-w-[50%] bg-[color:var(--color1)] hover:bg-[color:var(--color1-light)] text-[var(--white)] text-center block text-base mt-[25px] mb-[15px] mx-0 p-3"
+            >
+              SEE PRODUCT
+            </Link>
           </div>
         </div>
-        {/* <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        >
-          <div
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
-            className="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75"
-          />
-        </div> */}
+      </div>
+      <div className="">
+        <img src="../assets/hero.png" className="w-[100%]" />
       </div>
     </div>
   );

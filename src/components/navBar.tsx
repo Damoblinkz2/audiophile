@@ -48,7 +48,7 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-sm/6 font-semibold text-white uppercase"
+                className="text-sm/6 font-semibold text-white uppercase hover:text-[var(--color1)]"
               >
                 {item.name}
               </Link>
@@ -65,7 +65,7 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
       </nav>
 
       <div className={`${!showCart ? "hidden" : "block"}`}>
-        <div className="bg-[color:var(--transparent-black)] absolute z-[10] w-[100%] h-[100vh] overflow-hidden">
+        <div className="bg-[color:var(--transparent-black)] fixed absolute z-[10] w-[100%] h-[100vh] overflow-hidden">
           <div className="bg-[color:var(--white)] float-right w-[370px] z-20 relative mx-0 my-5 p-5 rounded-[5px] right-[10%] ">
             <div className="pb-[15px] border-b-[#e8e8e8] border-b border-solid">
               {`Cart (${cart.length})`}
@@ -139,8 +139,8 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
                     }).format(
                       cart.reduce(
                         (sum, item) => sum + item.price * item.quantity,
-                        0
-                      )
+                        0,
+                      ),
                     )}
                   </p>
                 </div>
