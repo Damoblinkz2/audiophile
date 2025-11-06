@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --color1: #d87d48;
+  --color1-light: #fbaf85;
+  --color2: #f1f1f1;
+  --color2-light: #fafafa;
+  --white: #ffffff;
+  --black: #000000;
+  --black2: #101010;
+  --transparent-black: #000000cc;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  body {
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+  }
+} */
+
+.hero-container {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 60%),
+    linear-gradient(to left, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 18%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 30%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 20%),
+    url("./assets/Bitmap.png");
+}
