@@ -2,19 +2,11 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 
-// import Header from "./components/header";
-// import YouMayLike from "./components/youMayLike";
-// import Banner from "./components/banner";
-
-// import ProductDisplay from "./components/productDisplay";
 import ProductGrid from "./pages/productGrid";
 import Frame from "./pages/frame";
-// import ProductDescription from "./components/productDescription";s
-// import ProductGallery from "./components/productGallery";
-// import Example from "./components/hero";
-// import ProductDetails from "./components/productDetails";
 import ProductView from "./pages/productView";
 import CheckOut from "./pages/checkOut";
+import Home from "./pages/home";
 
 export default function App() {
   const allData = useQuery(api.myFunctions.listProducts);
@@ -33,6 +25,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Frame />}>
+          <Route index element={<Home />} />
           {allData.map((item) => (
             <>
               <Route

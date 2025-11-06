@@ -35,7 +35,12 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
         </div>
 
         <div className="order-1 md:order-2">
-          <div className="md:hidden text-[var(--white)]">
+          <div
+            className="md:hidden text-[var(--white)]"
+            onClick={() => {
+              setMobileMenuOpen(true);
+            }}
+          >
             <i className="fa-light fa-bars fa-2x"></i>
           </div>
           <div className="hidden md:flex md:gap-x-6 lg:gap-x-12">
