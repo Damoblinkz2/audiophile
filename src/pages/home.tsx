@@ -12,7 +12,7 @@ const Home = () => {
         <div className="rounded-[10px] flex flex-col p-[10%] justify-center items-center bg-[var(--color2)] h-[100%] gap[20px]">
           <h1 className="uppercase font-bold text-[30px]">Yx1 earphones</h1>
           <Link
-            to=""
+            to="earphones/yx1-wireless-earphones"
             className="border-2 border-solid border-[var(--black)] p-[10px_30px] font-bold"
           >
             SEE PRODUCT
