@@ -1,5 +1,3 @@
-import img8 from "../assets/img-8.png";
-
 const Banner = () => {
   return (
     <div className="banner p-[20px] my-[30px] flex flex-col-reverse md:flex-row gap-2.5 items-center justify-between">
@@ -18,7 +16,7 @@ const Banner = () => {
         </p>
       </div>
       <div className="h-[400px]">
-        <img src={img8} className="object-contain h-[100%]" />
+        <img src="./assets/img-8.png" className="object-contain h-[100%]" />
       </div>
     </div>
   );

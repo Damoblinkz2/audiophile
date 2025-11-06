@@ -10,7 +10,7 @@ type navBarProps = {
 
 const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
   const [showCart, setShowCart] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleShowCart = () => {
     if (!showCart) {
@@ -38,7 +38,7 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
           <div
             className="md:hidden text-[var(--white)]"
             onClick={() => {
-              setMobileMenuOpen(true);
+              // setMobileMenuOpen(true);
             }}
           >
             <i className="fa-light fa-bars fa-2x"></i>
@@ -139,8 +139,8 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
                     }).format(
                       cart.reduce(
                         (sum, item) => sum + item.price * item.quantity,
-                        0,
-                      ),
+                        0
+                      )
                     )}
                   </p>
                 </div>

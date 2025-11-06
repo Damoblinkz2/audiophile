@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useMutation, useQuery } from "convex/react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 
 import ProductGrid from "./pages/productGrid";
