@@ -141,6 +141,7 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
                 </div>
 
                 <Link
+                  onClick={handleShowCart}
                   to="checkout"
                   className="bg-[color:var(--color1)] hover:bg-[color:var(--color1-light)] text-[var(--white)] text-center block text-base mt-[25px] mb-[15px] mx-0 p-3"
                 >
