@@ -12,6 +12,12 @@
   --transparent-black: #000000cc;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;

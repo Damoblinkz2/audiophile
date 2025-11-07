@@ -41,7 +41,7 @@ const Home = () => {
             </h1>
             <Link
               to="speakers/zx7-speaker"
-              className=" md:max-w-[30%] bg-[color:var(--black)] hover:bg-[color:var(--color1-light)] text-[var(--white)] text-center block text-base mt-[25px] mb-[15px] mx-0 p-3"
+              className="hover:border-2 hover:border-solid hover:border-[var(--black)] hover:bg-[transparent] md:max-w-[30%] bg-[color:var(--black)] hover:text-[var(--black)] text-[var(--white)] text-center block text-base mt-[25px] mb-[15px] mx-0 p-3"
             >
               SEE PRODUCT
             </Link>
@@ -56,7 +56,7 @@ const Home = () => {
             <h1 className="uppercase font-bold text-[30px]">Yx1 earphones</h1>
             <Link
               to="earphones/yx1-wireless-earphones"
-              className="border-2 border-solid border-[var(--black)] p-[10px_30px] font-bold"
+              className="border-2 border-solid border-[var(--black)] p-[10px_30px] hover:text-[var(--white)] hover:bg-[color:var(--black)] font-bold"
             >
               SEE PRODUCT
             </Link>

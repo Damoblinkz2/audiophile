@@ -8,15 +8,15 @@ const Footer = ({ navigation }: footerProps) => {
   return (
     <footer className="footer px-[10%] py-[20px] bg-[color:var(--black)]">
       <div className="text-[color:var(--white)] flex flex-col md:flex-row gap-2.5 items-center justify-between">
-        <h2 className=" font-bold text-[30px] tracking-[1.43px] ">
+        <Link to="/" className=" font-bold text-[30px] tracking-[1.43px] ">
           audiophile
-        </h2>
+        </Link>
         <div className="flex flex-col md:flex-row items-center gap-[20px] lg:gap-x-12">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
-              className="text-sm/6 uppercase font-medium text-[color:var(--white)]"
+              className="text-sm/6 uppercase font-medium text-[var(--white)] hover:text-[var(--color1)]"
             >
               {item.name}
             </Link>
@@ -34,9 +34,9 @@ const Footer = ({ navigation }: footerProps) => {
           <p>{`Copyright ${new Date().getFullYear()}. All right reserved`}</p>
         </div>
         <div className="text-[color:var(--white)] flex items-center gap-[10px]">
-          <i className="fa-brands fa-facebook fa-2x"></i>
-          <i className="fa-brands fa-twitter fa-2x"></i>
-          <i className="fa-brands fa-instagram fa-2x"></i>
+          <i className="fa-brands fa-facebook fa-2x hover:text-[var(--color1)]"></i>
+          <i className="fa-brands fa-twitter fa-2x hover:text-[var(--color1)]"></i>
+          <i className="fa-brands fa-instagram fa-2x hover:text-[var(--color1)]"></i>
         </div>
       </div>
     </footer>

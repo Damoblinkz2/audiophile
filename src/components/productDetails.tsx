@@ -36,11 +36,7 @@ const ProductDetails = ({
 
   const { addToCart, cartList } = context;
 
-  // console.log(cartList);
-
   const inCart = cartList?.find((item) => item.id === id);
-
-  console.log(inCart);
 
   const newItem = {
     id,

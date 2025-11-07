@@ -6,9 +6,10 @@ type navBarProps = {
   navigation: any[];
   cart: any[];
   clearCart: () => void;
+  remove: any;
 };
 
-const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
+const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
   const [showCart, setShowCart] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -46,7 +47,7 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
     <>
       <nav
         aria-label="Global"
-        className="flex items-center z-[100] fixed top-[0] justify-between h-[80px] container mx-auto px-[10%] bg-[var(--black)]"
+        className="flex items-center z-[100] fixed top-[0] justify-between h-[80px] container px-[10%] bg-[var(--black)] w-[100vw] "
       >
         <div className="order-2 md:order-1">
           <a href="/" className="">
@@ -60,9 +61,9 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
           <Button
             label={
               !mobileMenuOpen ? (
-                <i className="fa-light fa-bars fa-2x"></i>
+                <i className="fa-light fa-bars fa-2x hover:text-[var(--color1)]"></i>
               ) : (
-                <i className="fa-light fa-xmark fa-2x"></i>
+                <i className="fa-light fa-xmark fa-2x hover:text-[var(--color1)]"></i>
               )
             }
             style="md:hidden text-[var(--white)]"
@@ -82,7 +83,9 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
         </div>
         <div className="order-3">
           <Button
-            label={<i className="fa-light fa-cart-shopping fa-lg"></i>}
+            label={
+              <i className="fa-light fa-cart-shopping fa-lg hover:text-[var(--color1)]"></i>
+            }
             style="text-sm/6 text-white"
             on_click={handleShowCart}
           />
@@ -164,7 +167,10 @@ const NavBar = ({ navigation, cart, clearCart }: navBarProps) => {
                                 label={<i className="fa-light fa-plus"></i>}
                               />
                             </div>
-                            <span className="block text-[14px] cursor-pointer text-[var(--color1)] underline text-right">
+                            <span
+                              onClick={() => remove(item.id)}
+                              className="block text-[14px] cursor-pointer text-[var(--color1)] hover:underline text-right"
+                            >
                               remove
                             </span>
                           </div>

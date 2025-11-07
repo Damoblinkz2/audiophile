@@ -23,9 +23,20 @@ const Frame = () => {
   const clearCart = () => {
     setCartList([]);
   };
+
+  const removeItem = (id: string | number) => {
+    const cart = cartList?.filter((obj) => obj.id !== id);
+    setCartList(cart);
+  };
+
   return (
     <>
-      <NavBar navigation={navigation} cart={cartList} clearCart={clearCart} />
+      <NavBar
+        navigation={navigation}
+        cart={cartList}
+        clearCart={clearCart}
+        remove={removeItem}
+      />
 
       <MyContext.Provider value={{ cartList, addToCart }}>
         <Outlet />

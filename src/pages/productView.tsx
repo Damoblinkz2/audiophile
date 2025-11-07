@@ -27,7 +27,7 @@ export default function ProductView({ products }: productViewProps) {
             onClick={goBack}
             className="font-bold opacity-[50%] text-[color:var(--black)]"
           >
-            Go back
+            Go Back
           </button>
         </div>
         <ProductDetails

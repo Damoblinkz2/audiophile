@@ -16,7 +16,9 @@ const ShopCardItem = ({ product, img }: shopCardItemProps) => {
         <h1 className="font-bold text-[18px] tracking-[1.29px] uppercase">
           {product}
         </h1>
-        <Link to={product}>Shop</Link>
+        <Link to={`../${product}`} className="hover:text-[var(--color1)]">
+          Shop<i className="fa-light fa-arrow-right"></i>
+        </Link>
       </div>
     </div>
   );
