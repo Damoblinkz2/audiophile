@@ -15,7 +15,6 @@ const navigation = [
 
 const Frame = () => {
   const [cartList, setCartList] = useState<CartItemType[]>([]);
-  const [inCart, setInCart] = useState(false);
 
   const addToCart = (newItem: CartItemType) => {
     setCartList((prev) => [...prev, newItem]);

@@ -22,7 +22,7 @@ const ProductDetails = ({
   newProduct,
 }: productDetailsProps) => {
   const [counter, setCounter] = useState(1);
-  const [inCart, setInCart] = useState(false);
+  // const [inCart, setInCart] = useState(false);
 
   const formattedAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -34,9 +34,13 @@ const ProductDetails = ({
 
   if (!context) return <div>Error: Cant access cart</div>;
 
-  const { addToCart } = context;
+  const { addToCart, cartList } = context;
 
   // console.log(cartList);
+
+  const inCart = cartList?.find((item) => item.id === id);
+
+  console.log(inCart);
 
   const newItem = {
     id,
@@ -47,7 +51,6 @@ const ProductDetails = ({
   };
   const handleAddToCart = () => {
     addToCart(newItem);
-    setInCart(true);
   };
 
   return (

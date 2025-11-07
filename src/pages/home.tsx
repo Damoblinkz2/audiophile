@@ -41,7 +41,7 @@ const Home = () => {
             </h1>
             <Link
               to="speakers/zx7-speaker"
-              className="max-w-[50%] md:max-w-[30%] bg-[color:var(--black)] hover:bg-[color:var(--color1-light)] text-[var(--white)] text-center block text-base mt-[25px] mb-[15px] mx-0 p-3"
+              className=" md:max-w-[30%] bg-[color:var(--black)] hover:bg-[color:var(--color1-light)] text-[var(--white)] text-center block text-base mt-[25px] mb-[15px] mx-0 p-3"
             >
               SEE PRODUCT
             </Link>
