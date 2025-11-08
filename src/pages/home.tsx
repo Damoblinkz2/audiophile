@@ -1,17 +1,34 @@
+/**
+ * Home component renders the homepage of the audiophile e-commerce site,
+ * featuring the hero section, shop categories, and promotional banners for featured products.
+ */
 import { Link } from "react-router-dom";
 
 import Hero from "@/components/hero";
 import ShopCard from "@/components/shopCard";
 
+/**
+ * Home component for the main landing page.
+ * @returns The rendered Home component.
+ */
 const Home = () => {
   return (
     <>
+      {/* Hero section */}
       <Hero />
+
       <div className="container mx-auto px-[10%]">
+        {/* Shop categories section */}
         <ShopCard />
+
+        {/* ZX9 Speaker promotional banner */}
         <div className="bg-[color:var(--color1)] flex justify-between flex-col rounded-[5px] md:flex-row gap-2.5 items-center mt-[75px] px-[20px] py-0">
           <div className="">
-            <img src="../assets/img-30.png" className="w-[100%]" />
+            <img
+              src="../assets/img-30.png"
+              className="w-[100%]"
+              alt="ZX9 Speaker"
+            />
           </div>
           <div className="mx-auto text-center md:text-left p-[30px]">
             <div className="md:max-w-[75%]">
@@ -33,7 +50,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/*  */}
+
+        {/* ZX7 Speaker promotional section */}
         <div className="px-[20px] my-[20px] py-[50px] rounded-[5px] bg-[url('../assets/img-31.png')] bg-cover bg-center bg-no-repeat">
           <div>
             <h1 className="text-[29px] font-semibold tracking-tight text-[var(--black)] sm:text-[40px] uppercase">
@@ -47,10 +65,15 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        {/*  */}
+
+        {/* YX1 Earphones promotional grid */}
         <div className="grid grid md:grid-cols-[1fr_1fr] grid-cols-[1fr] grid-rows-[1fr_ifr] md:grid-rows-[1fr] gap-[10px] my-[30px]">
           <div className=" rounded-[10px]">
-            <img src="../assets/img-25.png" className="w-[100%] contain" />
+            <img
+              src="../assets/img-25.png"
+              className="w-[100%] contain"
+              alt="YX1 Earphones"
+            />
           </div>
           <div className="rounded-[10px] flex flex-col p-[10%] justify-center items-center bg-[var(--color2)] h-[100%] gap[20px]">
             <h1 className="uppercase font-bold text-[30px]">Yx1 earphones</h1>

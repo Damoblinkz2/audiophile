@@ -1,6 +1,11 @@
+/**
+ * Banner component displays promotional content about the store.
+ * Features a description of the store's location and offerings with an image.
+ */
 const Banner = () => {
   return (
     <div className="banner p-[20px] my-[30px] flex flex-col-reverse md:flex-row gap-2.5 items-center justify-between">
+      {/* Banner content */}
       <div className="p-[15px] max-w-[450px]">
         <h1 className="mb-4 font-bold text-[40px] leading-[44px] tracking-[1.43px] uppercase ">
           bringing you the{" "}
@@ -15,8 +20,14 @@ const Banner = () => {
           best place to buy your portable audio equipment.
         </p>
       </div>
+
+      {/* Banner image */}
       <div className="h-[400px]">
-        <img src="../assets/img-8.png" className="object-contain h-[100%]" />
+        <img
+          src="../assets/img-8.png"
+          className="object-contain h-[100%]"
+          alt="Audiophile store showcase"
+        />
       </div>
     </div>
   );

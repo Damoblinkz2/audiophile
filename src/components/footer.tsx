@@ -1,16 +1,33 @@
+/**
+ * Footer component displays site navigation, company description, copyright, and social media links.
+ * Provides consistent footer across all pages.
+ */
 import { Link } from "react-router-dom";
 
+/**
+ * Props interface for the Footer component.
+ */
 type footerProps = {
+  /** Array of navigation items with name and href */
   navigation: any[];
 };
 
+/**
+ * Footer component for site-wide footer content.
+ * @param props - The props for the Footer component.
+ * @returns The rendered Footer component.
+ */
 const Footer = ({ navigation }: footerProps) => {
   return (
     <footer className="footer px-[10%] py-[20px] bg-[color:var(--black)]">
+      {/* Top section with logo and navigation */}
       <div className="text-[color:var(--white)] flex flex-col md:flex-row gap-2.5 items-center justify-between">
+        {/* Site logo */}
         <Link to="/" className=" font-bold text-[30px] tracking-[1.43px] ">
           audiophile
         </Link>
+
+        {/* Navigation links */}
         <div className="flex flex-col md:flex-row items-center gap-[20px] lg:gap-x-12">
           {navigation.map((item) => (
             <Link
@@ -23,7 +40,10 @@ const Footer = ({ navigation }: footerProps) => {
           ))}
         </div>
       </div>
+
+      {/* Bottom section with description and social links */}
       <div className="flex flex-col md:flex-row gap-3.5 justify-between items-center">
+        {/* Company description and copyright */}
         <div className="text-[color:var(--white)] text-center md:text-left mt-[20px] opacity-[50%] text-[15px] leading-[25px] max-w-[600px]">
           <p className=" my-[15px]">
             Audiophile is an all in one stop to fulfill your audio needs. We're
@@ -33,6 +53,8 @@ const Footer = ({ navigation }: footerProps) => {
           </p>
           <p>{`Copyright ${new Date().getFullYear()}. All right reserved`}</p>
         </div>
+
+        {/* Social media icons */}
         <div className="text-[color:var(--white)] flex items-center gap-[10px]">
           <i className="fa-brands fa-facebook fa-2x hover:text-[var(--color1)]"></i>
           <i className="fa-brands fa-twitter fa-2x hover:text-[var(--color1)]"></i>

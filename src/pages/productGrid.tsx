@@ -1,24 +1,34 @@
-// import { useMutation, useQuery } from "convex/react";
-// import { api } from "../convex/_generated/api";
+/**
+ * ProductGrid component displays a grid of products for a specific category.
+ * Shows category header, alternating product displays, and shop categories.
+ */
 import ShopCard from "@/components/shopCard";
 import Header from "../components/header";
-// import YouMayLike from "./components/youMayLike";
-// import Banner from "./components/banner";
 import ProductDisplay from "../components/productDisplay";
-// import ProductDescription from "./components/productDescription";s
-// import ProductGallery from "./components/productGallery";
-// import Example from "./components/hero";
-// import ProductDetails from "./components/productDetails";
 
+/**
+ * Props interface for the ProductGrid component.
+ */
 type productGridProps = {
+  /** The product category name */
   category: string;
+  /** Array of products to display */
   products: any[];
 };
+
+/**
+ * ProductGrid component for displaying products in a category.
+ * @param props - The props for the ProductGrid component.
+ * @returns The rendered ProductGrid component.
+ */
 export default function ProductGrid({ category, products }: productGridProps) {
   return (
     <>
+      {/* Category header */}
       <Header category={category} />
+
       <div className="container mx-auto px-[10%]">
+        {/* Product list with alternating layout */}
         {products.map((item, index) => (
           <ProductDisplay
             key={index}
@@ -34,6 +44,8 @@ export default function ProductGrid({ category, products }: productGridProps) {
             }
           />
         ))}
+
+        {/* Shop categories section */}
         <ShopCard />
       </div>
     </>

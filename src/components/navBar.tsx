@@ -1,18 +1,39 @@
+/**
+ * NavBar component provides navigation, mobile menu, and cart functionality.
+ * Includes logo, navigation links, cart icon, and dropdown cart/modal menu.
+ */
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./button";
 
+/**
+ * Props interface for the NavBar component.
+ */
 type navBarProps = {
+  /** Array of navigation items with name and href */
   navigation: any[];
+  /** Array of cart items */
   cart: any[];
+  /** Function to clear all items from the cart */
   clearCart: () => void;
+  /** Function to remove a specific item from the cart */
   remove: any;
 };
 
+/**
+ * NavBar component for site navigation and cart management.
+ * @param props - The props for the NavBar component.
+ * @returns The rendered NavBar component.
+ */
 const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
+  // State for showing/hiding the cart dropdown
   const [showCart, setShowCart] = useState(false);
+  // State for mobile menu toggle
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  /**
+   * Toggles the cart dropdown visibility.
+   */
   const handleShowCart = () => {
     if (!showCart) {
       setShowCart(true);
@@ -21,6 +42,10 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
       setShowCart(false);
     }
   };
+
+  /**
+   * Toggles the mobile menu visibility.
+   */
   const handleMobileMenu = () => {
     if (!mobileMenuOpen) {
       setMobileMenuOpen(true);
@@ -30,6 +55,11 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
     }
   };
 
+  /**
+   * Formats a number as USD currency without cents.
+   * @param amount - The amount to format.
+   * @returns The formatted currency string.
+   */
   const formatAmount = (amount: number) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -38,6 +68,7 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
     }).format(amount);
   };
 
+  // Calculate the total price of all products in the cart
   const totalPriceOfProduct = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0,
@@ -45,10 +76,12 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
 
   return (
     <>
+      {/* Main navigation bar */}
       <nav
         aria-label="Global"
         className="flex items-center z-[100] fixed top-[0] justify-between h-[80px] container px-[10%] bg-[var(--black)] w-[100vw] "
       >
+        {/* Logo/brand */}
         <div className="order-2 md:order-1">
           <a href="/" className="">
             <span className="text-[color:var(--white)] font-bold uppercase">
@@ -57,6 +90,7 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
           </a>
         </div>
 
+        {/* Mobile menu button and desktop navigation */}
         <div className="order-1 md:order-2">
           <Button
             label={
@@ -81,6 +115,8 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
             ))}
           </div>
         </div>
+
+        {/* Cart button */}
         <div className="order-3">
           <Button
             label={
@@ -92,10 +128,12 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
         </div>
       </nav>
 
+      {/* Overlay for cart and mobile menu */}
       <div className={`${showCart || mobileMenuOpen ? "block" : "hidden"}`}>
         <div className="bg-[color:var(--transparent-black)] fixed absolute z-[10] px-[10px] w-[100%] h-[100vh] overflow-hidden">
           <div className="bg-[color:var(--white)] md:float-right w-[100%]  md:w-[370px] z-20 relative mx-0 my-5 p-5 rounded-[5px] md:right-[10%] ">
             {mobileMenuOpen ? (
+              // Mobile navigation menu
               <div>
                 {navigation.map((item) => (
                   <Link
@@ -109,6 +147,7 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
                 ))}
               </div>
             ) : (
+              // Cart dropdown
               <>
                 <div className="pb-[15px] border-b-[#e8e8e8] border-b border-solid">
                   {`Cart (${cart.length})`}
@@ -122,9 +161,9 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
                   <p className="font-bold text-center">The cart is empty</p>
                 ) : (
                   <>
+                    {/* Cart items list */}
                     <ul className="pt-[20px]">
                       {cart.map((item) => (
-                        // const [quant,setQuant] =useState(item.quantity);
                         <li
                           className="mb-[18px] flex justify-between items-center h-[80px]"
                           key={item.id}
@@ -134,7 +173,7 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
                               <img
                                 className="h-[100%]"
                                 src={`../${item.img}`}
-                                alt="item1"
+                                alt={item.name}
                               />
                             </div>
                             <div className="h-[100%] px-[2px] py-[7px] overflow-hidden">
@@ -147,14 +186,12 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
                             </div>
                           </div>
 
+                          {/* Quantity controls and remove button */}
                           <div className="flex flex-col">
                             <div className="counter flex items-center text-center h-[40px] w-[90px] bg-[var(--color2)]">
                               <Button
                                 style="w-[30px]"
-                                on_click={() =>
-                                  // counter === 1 ? setCounter(1) : setCounter(counter - 1)
-                                  item.quantity--
-                                }
+                                on_click={() => item.quantity--}
                                 label={<i className="fa-light fa-minus"></i>}
                               />
                               <span className="w-[30px] font-medium">
@@ -162,7 +199,6 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
                               </span>
                               <Button
                                 style="w-[30px]"
-                                // on_click={() => setCounter(counter + 1)}
                                 on_click={() => item.quantity++}
                                 label={<i className="fa-light fa-plus"></i>}
                               />
@@ -177,11 +213,14 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
                         </li>
                       ))}
                     </ul>
+
+                    {/* Total price */}
                     <div className="flex justify-between items-center font-bold">
                       <p className="">Total</p>
                       <p>{formatAmount(totalPriceOfProduct)}</p>
                     </div>
 
+                    {/* Checkout button */}
                     <Link
                       onClick={handleShowCart}
                       to="checkout"

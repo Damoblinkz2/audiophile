@@ -1,11 +1,22 @@
+/**
+ * YouMayLike component displays a section of recommended products.
+ * Shows three related products that users might be interested in.
+ */
 import ProductCard from "./productCard";
 
+/**
+ * YouMayLike component for product recommendations.
+ * @returns The rendered YouMayLike component.
+ */
 const YouMayLike = () => {
   return (
     <>
+      {/* Section title */}
       <h1 className="uppercase font-bold text-center text-[25px]">
         You may also like
       </h1>
+
+      {/* Recommended products grid */}
       <div className="youMayLike p-[10px] my-[10px] flex flex-col md:flex-row gap-[10px]">
         <ProductCard
           img="../assets/img-5.png"
