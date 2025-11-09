@@ -18,6 +18,10 @@ type navBarProps = {
   clearCart: () => void;
   /** Function to remove a specific item from the cart */
   remove: any;
+  /** Function to increase quantity of an item */
+  increaseQuantity?: (id: any) => void;
+  /** Function to decrease quantity of an item */
+  decreaseQuantity?: (id: any) => void;
 };
 
 /**
@@ -25,7 +29,14 @@ type navBarProps = {
  * @param props - The props for the NavBar component.
  * @returns The rendered NavBar component.
  */
-const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
+const NavBar = ({
+  navigation,
+  cart,
+  clearCart,
+  remove,
+  increaseQuantity,
+  decreaseQuantity,
+}: navBarProps) => {
   // State for showing/hiding the cart dropdown
   const [showCart, setShowCart] = useState(false);
   // State for mobile menu toggle
@@ -64,7 +75,7 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
-      minimumFractionDigits: 0,
+      minimumFractionDigits: 2,
     }).format(amount);
   };
 
@@ -117,7 +128,7 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
         </div>
 
         {/* Cart button */}
-        <div className="order-3">
+        <div className="order-3 relative">
           <Button
             label={
               <i className="fa-light fa-cart-shopping fa-lg hover:text-[var(--color1)]"></i>
@@ -125,6 +136,9 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
             style="text-sm/6 text-white"
             on_click={handleShowCart}
           />
+          <span className="absolute top-[-30%] left-[50%] rounded-[50%] bg-[color:var(--color1)] w-[17px] h-[17px] text-[var(--white)] text-[10px] flex justify-center items-center ">
+            {cart.length}
+          </span>
         </div>
       </nav>
 
@@ -162,7 +176,7 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
                 ) : (
                   <>
                     {/* Cart items list */}
-                    <ul className="pt-[20px]">
+                    <ul className="pt-[20px] max-h-[250px] overflow-y-scroll">
                       {cart.map((item) => (
                         <li
                           className="mb-[18px] flex justify-between items-center h-[80px]"
@@ -191,7 +205,11 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
                             <div className="counter flex items-center text-center h-[40px] w-[90px] bg-[var(--color2)]">
                               <Button
                                 style="w-[30px]"
-                                on_click={() => item.quantity--}
+                                on_click={() => {
+                                  if (decreaseQuantity) {
+                                    decreaseQuantity(item.id);
+                                  }
+                                }}
                                 label={<i className="fa-light fa-minus"></i>}
                               />
                               <span className="w-[30px] font-medium">
@@ -199,7 +217,11 @@ const NavBar = ({ navigation, cart, clearCart, remove }: navBarProps) => {
                               </span>
                               <Button
                                 style="w-[30px]"
-                                on_click={() => item.quantity++}
+                                on_click={() => {
+                                  if (increaseQuantity) {
+                                    increaseQuantity(item.id);
+                                  }
+                                }}
                                 label={<i className="fa-light fa-plus"></i>}
                               />
                             </div>

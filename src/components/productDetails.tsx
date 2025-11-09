@@ -42,13 +42,12 @@ const ProductDetails = ({
 }: productDetailsProps) => {
   // State for the quantity counter
   const [counter, setCounter] = useState(1);
-  // const [inCart, setInCart] = useState(false); // Commented out unused state
 
-  // Format the price as USD currency without cents
+  // Format the price as USD currency with cents
   const formattedAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-    minimumFractionDigits: 0, // Removes the .00 cents
+    minimumFractionDigits: 2, // Shows cents
   }).format(price);
 
   // Access the cart context

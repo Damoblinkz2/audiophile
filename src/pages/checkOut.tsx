@@ -27,7 +27,7 @@ export default function CheckOut() {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
-      minimumFractionDigits: 0,
+      minimumFractionDigits: 2,
     }).format(amount);
   };
 
@@ -84,9 +84,24 @@ export default function CheckOut() {
                 Billing details
               </h2>
               <div className="grid md:grid-cols-[1fr_1fr] grid-cols-[1fr] grid-rows-[1fr_1fr_1fr] md:grid-rows-[1fr_1fr] gap-[10px]">
-                <Input _for="Full Name" _type="text" style="" />
-                <Input _for="Email" _type="email" style="" />
-                <Input _for="Phone Number" _type="tel" style="" />
+                <Input
+                  _for="Full Name"
+                  _type="text"
+                  style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px]"
+                  value=""
+                />
+                <Input
+                  _for="Email"
+                  _type="email"
+                  style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px]"
+                  value=""
+                />
+                <Input
+                  _for="Phone Number"
+                  _type="tel"
+                  style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px]"
+                  value=""
+                />
               </div>
             </section>
 
@@ -99,21 +114,25 @@ export default function CheckOut() {
                 <Input
                   _for="Address"
                   _type="text"
+                  value=""
                   style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] md:col-[2_/_span_1] md:row-[1_/_span_2]"
                 />
                 <Input
                   _for="Zip code"
                   _type="text"
+                  value=""
                   style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] "
                 />
                 <Input
                   _for="City"
+                  value=""
                   _type="text"
                   style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] "
                 />
                 <Input
                   _for="Country"
                   _type="text"
+                  value=""
                   style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] "
                 />
               </div>
@@ -122,31 +141,40 @@ export default function CheckOut() {
             {/* Payment details section */}
             <section>
               <h2 className="uppercase font-bold text-[16px] text-[var(--color1)] tracking-[4px] mt-[20px]">
-                payment details
+                payment method
               </h2>
-              <div className="grid md:grid-cols-[1fr_1fr] grid-cols-[1fr] grid-rows-[1fr_1fr_1fr] md:grid-rows-[1fr_1fr] gap-[10px]">
-                <div className="bg-[red]">
-                  <p>payment method</p>
-                  <Input
-                    _type="radio"
-                    _for="payment 1"
-                    style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] "
-                  />
-                  <Input
-                    _type="radio"
-                    _for="payment 2"
-                    style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] "
-                  />
+              <fieldset>
+                <div className="grid md:grid-cols-[1fr_1fr] grid-cols-[1fr] grid-rows-[1fr_1fr_1fr] md:grid-rows-[1fr_1fr] gap-[10px]">
+                  <div className="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] ">
+                    <Input
+                      _type="radio"
+                      _for="e-money"
+                      style="block h-[20px]"
+                      value="e-money"
+                    />
+                  </div>
+                  <div className="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] ">
+                    <Input
+                      _type="radio"
+                      _for="cash on delivery"
+                      style="block h-[20px]"
+                      value="cash"
+                    />
+                  </div>
                 </div>
+              </fieldset>
+              <div className="grid md:grid-cols-[1fr_1fr] grid-cols-[1fr] grid-rows-[1fr_1fr_1fr] md:grid-rows-[1fr_1fr] gap-[10px]">
                 <Input
                   _for="payment id"
                   _type="text"
+                  value=""
                   style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] "
                 />
                 <Input
                   _for="payment code"
                   _type="text"
                   style="h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] "
+                  value=""
                 />
               </div>
             </section>

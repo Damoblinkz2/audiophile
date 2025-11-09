@@ -8,6 +8,8 @@ type inputProps = {
   _type: string;
   /** Additional CSS classes for styling */
   style: string;
+  // add value
+  value: string;
 };
 
 /**
@@ -15,7 +17,7 @@ type inputProps = {
  * @param props - The props for the Input component.
  * @returns The rendered Input component.
  */
-const Input = ({ _for, _type, style }: inputProps) => {
+const Input = ({ _for, _type, style, value }: inputProps) => {
   return (
     <div className="h-[81px]">
       {/* Label for the input */}
@@ -27,7 +29,9 @@ const Input = ({ _for, _type, style }: inputProps) => {
       <input
         type={_type}
         placeholder={_for}
-        className={`h-[60%] w-[100%] pl-[10px] border-2 border-solid border-[var(--transparent-black)] rounded-[5px] ${style}`}
+        className={style}
+        value={value}
+        name="payment"
       />
     </div>
   );

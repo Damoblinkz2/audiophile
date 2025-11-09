@@ -54,6 +54,38 @@ const Frame = () => {
     setCartList(cart);
   };
 
+  /**
+   * Increases the quantity of a specific item in the cart by its ID.
+   * @param id - The ID of the item to increase quantity.
+   */
+  const increaseQuantity = (id: any) => {
+    setCartList((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
+    );
+  };
+
+  /**
+   * Decreases the quantity of a specific item in the cart by its ID.
+   * If quantity reaches 0, removes the item from the cart.
+   * @param id - The ID of the item to decrease quantity.
+   */
+  const decreaseQuantity = (id: any) => {
+    setCartList(
+      (prev) =>
+        prev
+          .map((item) =>
+            item.id === id
+              ? item.quantity > 1
+                ? { ...item, quantity: item.quantity - 1 }
+                : null
+              : item,
+          )
+          .filter(Boolean) as CartItemType[],
+    );
+  };
+
   return (
     <>
       {/* Navigation bar with menu items, cart display, and cart management functions */}
@@ -62,10 +94,14 @@ const Frame = () => {
         cart={cartList}
         clearCart={clearCart}
         remove={removeItem}
+        increaseQuantity={increaseQuantity}
+        decreaseQuantity={decreaseQuantity}
       />
 
       {/* Context provider to share cart state with child components */}
-      <MyContext.Provider value={{ cartList, addToCart }}>
+      <MyContext.Provider
+        value={{ cartList, addToCart, increaseQuantity, decreaseQuantity }}
+      >
         <Outlet />
       </MyContext.Provider>
 

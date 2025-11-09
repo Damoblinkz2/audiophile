@@ -28,6 +28,10 @@ export type MyContextType = {
   cartList: CartItemType[] | undefined;
   /** Function to add a new item to the cart */
   addToCart: (newItem: CartItemType) => void;
+  /** Function to increase quantity of an item in the cart */
+  increaseQuantity: (id: any) => void;
+  /** Function to decrease quantity of an item in the cart */
+  decreaseQuantity: (id: any) => void;
 };
 
 /**
